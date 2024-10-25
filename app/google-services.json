@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "486404417030",
+    "project_id": "lista-de-contatos-f4737",
+    "storage_bucket": "lista-de-contatos-f4737.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486404417030:android:aecc71ed184c49a6d60587",
+        "android_client_info": {
+          "package_name": "commer.mmr.m2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5l1cCb_7r862dJgibc4vBkiJfiFsiZZU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
