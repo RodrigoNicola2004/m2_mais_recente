@@ -35,7 +35,6 @@ public class ListaContatos extends AppCompatActivity {
             Intent intent = new Intent(ListaContatos.this, AddOuEditContatos.class);
             startActivity(intent);
         });
-
     }
 
     @Override
@@ -45,15 +44,21 @@ public class ListaContatos extends AppCompatActivity {
     }
 
     private void carregarContato() {
-        listaContato = databaseHelper.getAllContatos();
+        listaContato.clear(); // Limpa a lista atual para evitar duplicatas
+        listaContato.addAll(databaseHelper.getAllContatos()); // Carrega todos os contatos do banco de dados
 
-        adapter = new ContatoAdapter(listaContato, contato -> {
-            Intent intent = new Intent(ListaContatos.this, AddOuEditContatos.class);
-            intent.putExtra("id", contato.getId());
-            startActivity(intent);
-        });
-
-        recyclerViewContatos.setAdapter(adapter);
+        if (adapter == null) {
+            // Inicializa o adaptador se for a primeira vez
+            adapter = new ContatoAdapter(listaContato, contato -> {
+                Intent intent = new Intent(ListaContatos.this, AddOuEditContatos.class);
+                intent.putExtra("id", contato.getId());
+                startActivity(intent);
+            });
+            recyclerViewContatos.setAdapter(adapter);
+        } else {
+            // Notifica o adaptador sobre mudanças nos dados
+            adapter.notifyDataSetChanged();
+        }
 
         if (listaContato.isEmpty()) {
             Toast.makeText(this, "Nenhum contato encontrado.", Toast.LENGTH_SHORT).show();

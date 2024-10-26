@@ -1,79 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddOuEditContatos">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- Campo para Nome Completo -->
+    <!-- Campo para o Nome do Contato -->
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginEnd="16dp"
-        android:hint="Nome Completo"
+        android:hint="Nome"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginBottom="16dp"/>
 
-    <!-- Campo para adicionar número de telefone -->
-    <EditText
-        android:id="@+id/editTextPhoneNumber"
-        android:layout_width="0dp"
+    <!-- Container para os campos de Telefone dinâmicos -->
+    <LinearLayout
+        android:id="@+id/phoneContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Número de Telefone"
-        android:inputType="phone"
-        app:layout_constraintTop_toBottomOf="@id/editTextName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
+        android:orientation="vertical"/>
 
-    <!-- Spinner para selecionar o tipo de telefone -->
-    <Spinner
-        android:id="@+id/spinnerPhoneType"
-        android:layout_width="0dp"
+    <!-- Botão para adicionar um novo campo de telefone -->
+    <Button
+        android:id="@+id/buttonAddPhoneNumber"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/phone_types"
-        app:layout_constraintTop_toBottomOf="@id/editTextPhoneNumber"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"/>
-
-    <!-- Botão para adicionar mais números -->
+        android:text="Adicionar Telefone"
+        android:layout_marginBottom="16dp"/>
 
     <!-- Botão para salvar o contato -->
-
-    <!-- Botão para excluir o contato (somente na edição) -->
-
     <Button
         android:id="@+id/buttonSaveContact"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Salvar Contato"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881" />
+        android:layout_marginBottom="8dp"/>
 
+    <!-- Botão para excluir o contato (aparece apenas ao editar um contato) -->
     <Button
         android:id="@+id/buttonDeleteContact"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Excluir Contato"
         android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:backgroundTint="@android:color/holo_red_light"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
