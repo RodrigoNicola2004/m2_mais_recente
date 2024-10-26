@@ -55,7 +55,7 @@ public class AddOuEditContatos extends AppCompatActivity {
         buttonAddPhoneNumber.setOnClickListener(v -> adicionarCampoTelefone(null, null));
     }
 
-    // Método para adicionar dinamicamente campos de telefone
+    // Método para add campos de telefone
     private void adicionarCampoTelefone(String numero, String tipo) {
         View phoneView = LayoutInflater.from(this).inflate(R.layout.item_telefone, phoneContainer, false);
 
@@ -67,7 +67,6 @@ public class AddOuEditContatos extends AppCompatActivity {
         }
 
         if (tipo != null) {
-            // Ajusta o tipo de telefone selecionado se fornecido
             int spinnerPosition = ((ArrayAdapter<String>) spinnerPhoneType.getAdapter()).getPosition(tipo);
             spinnerPhoneType.setSelection(spinnerPosition);
         }
@@ -96,7 +95,7 @@ public class AddOuEditContatos extends AppCompatActivity {
 
         List<Telefone> telefones = new ArrayList<>();
 
-        // Itera por todos os campos de telefone adicionados dinamicamente
+        // Itera por todos os campos de telefone adicionados
         for (int i = 0; i < phoneContainer.getChildCount(); i++) {
             View phoneView = phoneContainer.getChildAt(i);
 

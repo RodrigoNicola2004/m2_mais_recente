@@ -10,7 +10,7 @@ public class Telefone {
 
     public Telefone(String number, String type) {
         this.number = number;
-        this.type = type;
+        this.type = number;
     }
 
     // Getters e Setters

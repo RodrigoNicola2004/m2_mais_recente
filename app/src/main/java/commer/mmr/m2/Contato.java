@@ -17,7 +17,7 @@ public class Contato {
         this.telefone = telefone;
     }
 
-    // Getters e Setters
+    // Getters e Setters acho q é assim q escreve
     public String getId() {
         return id;
     }

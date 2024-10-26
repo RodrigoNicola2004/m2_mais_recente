@@ -36,8 +36,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_TELEFONES_TABLE = "CREATE TABLE " + TABLE_TELEFONES + "("
                 + COLUMN_PHONE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + COLUMN_CONTACT_ID + " INTEGER,"
-                + COLUMN_PHONE_NUMBER + " TEXT,"
-                + COLUMN_PHONE_TYPE + " TEXT,"
+                + COLUMN_PHONE_NUMBER + " INTEGER,"
+                + COLUMN_PHONE_TYPE + " INTEGER,"
                 + "FOREIGN KEY(" + COLUMN_CONTACT_ID + ") REFERENCES " + TABLE_CONTATOS + "(" + COLUMN_ID + ") ON DELETE CASCADE)";
 
         db.execSQL(CREATE_CONTATOS_TABLE);
@@ -85,7 +85,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             ContentValues phoneValues = new ContentValues();
             phoneValues.put(COLUMN_CONTACT_ID, contato.getId());
             phoneValues.put(COLUMN_PHONE_NUMBER, telefone.getNumber());
-            phoneValues.put(COLUMN_PHONE_TYPE, telefone.getType());
+            phoneValues.put(COLUMN_PHONE_TYPE, telefone.getNumber());
             db.insert(TABLE_TELEFONES, null, phoneValues);
         }
 
